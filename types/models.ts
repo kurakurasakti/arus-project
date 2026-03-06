@@ -130,20 +130,20 @@ export const SAK_EMKM_CATEGORIES: SakEmkmCategory[] = [
   { code: '1-2000', nameId: 'Piutang', nameEn: 'Receivables', type: 'asset' },
   { code: '1-3000', nameId: 'Persediaan', nameEn: 'Inventory', type: 'asset' },
   { code: '1-4000', nameId: 'Aset Tetap', nameEn: 'Fixed Assets', type: 'asset' },
-  
+
   // Liabilitas (Liabilities)
   { code: '2-1000', nameId: 'Hutang Usaha', nameEn: 'Accounts Payable', type: 'liability' },
   { code: '2-2000', nameId: 'Hutang Bank', nameEn: 'Bank Loans', type: 'liability' },
   { code: '2-3000', nameId: 'Hutang Lainnya', nameEn: 'Other Liabilities', type: 'liability' },
-  
+
   // Ekuitas (Equity)
   { code: '3-1000', nameId: 'Modal', nameEn: 'Capital', type: 'equity' },
   { code: '3-2000', nameId: 'Laba Ditahan', nameEn: 'Retained Earnings', type: 'equity' },
-  
+
   // Pendapatan (Revenue)
   { code: '4-1000', nameId: 'Penjualan', nameEn: 'Sales', type: 'revenue' },
   { code: '4-2000', nameId: 'Pendapatan Lain', nameEn: 'Other Income', type: 'revenue' },
-  
+
   // Beban (Expenses)
   { code: '5-1000', nameId: 'Beban Pokok Penjualan', nameEn: 'Cost of Goods Sold', type: 'expense' },
   { code: '5-2000', nameId: 'Beban Operasional', nameEn: 'Operating Expenses', type: 'expense' },
@@ -290,12 +290,12 @@ export interface TeamMember {
 // ONBOARDING STATE
 // ============================================
 
-export type OnboardingStep = 
-  | 'whatsapp-verification' 
-  | 'business-profile' 
-  | 'first-upload' 
-  | 'processing' 
-  | 'first-review' 
+export type OnboardingStep =
+  | 'whatsapp-verification'
+  | 'business-profile'
+  | 'first-upload'
+  | 'processing'
+  | 'first-review'
   | 'subscription';
 
 export interface OnboardingProcessingStatus {
@@ -439,3 +439,5 @@ export type ExportFormat = 'pdf' | 'excel' | 'csv';
 export interface ExportOptions {
   format: ExportFormat;
   periodStart: Date;
+  periodEnd?: Date;
+}
