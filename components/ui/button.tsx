@@ -1,8 +1,8 @@
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { Slot } from "radix-ui";
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { Slot } from "radix-ui"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
   "group/button inline-flex shrink-0 items-center justify-center rounded-4xl border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
@@ -19,14 +19,6 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
-
-        /* 2026 Visual Identity System Button Variants */
-        viPrimary:
-          "bg-[var(--vi-primary)] text-white border-transparent hover:opacity-90 focus-visible:ring-[var(--vi-primary)]/30",
-        viSecondary:
-          "bg-transparent border-[var(--vi-primary)] text-[var(--vi-primary)] hover:bg-[var(--vi-primary)]/5 focus-visible:ring-[var(--vi-primary)]/30",
-        viTertiary:
-          "bg-transparent border-transparent text-[var(--vi-primary)] hover:underline underline-offset-4 focus-visible:ring-[var(--vi-primary)]/30",
       },
       size: {
         default:
@@ -38,39 +30,14 @@ const buttonVariants = cva(
         "icon-xs": "size-6 [&_svg:not([class*='size-'])]:size-3",
         "icon-sm": "size-8",
         "icon-lg": "size-10",
-
-        /* 2026 Visual Identity System Button Sizes */
-        viPrimary: "h-12 px-6 rounded-[var(--radius-button)] gap-2",
-        viSecondary: "h-12 px-6 rounded-[var(--radius-button)] gap-2",
-        viTertiary: "h-auto px-0 py-1 gap-1",
       },
     },
-    compoundVariants: [
-      /* 2026 Visual Identity System - Combined Primary variant */
-      {
-        variant: "viPrimary",
-        size: "default",
-        className: "h-12 px-6 rounded-[var(--radius-button)] gap-2",
-      },
-      /* 2026 Visual Identity System - Combined Secondary variant */
-      {
-        variant: "viSecondary",
-        size: "default",
-        className: "h-12 px-6 rounded-[var(--radius-button)] gap-2",
-      },
-      /* 2026 Visual Identity System - Combined Tertiary variant */
-      {
-        variant: "viTertiary",
-        size: "default",
-        className: "h-auto px-0 py-1 gap-1",
-      },
-    ],
     defaultVariants: {
       variant: "default",
       size: "default",
     },
-  },
-);
+  }
+)
 
 function Button({
   className,
@@ -80,9 +47,9 @@ function Button({
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
+    asChild?: boolean
   }) {
-  const Comp = asChild ? Slot.Root : "button";
+  const Comp = asChild ? Slot.Root : "button"
 
   return (
     <Comp
@@ -92,7 +59,7 @@ function Button({
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
-  );
+  )
 }
 
-export { Button, buttonVariants };
+export { Button, buttonVariants }
