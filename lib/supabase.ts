@@ -9,8 +9,17 @@ export interface SupabaseCredentials {
 // Storage key for credentials use
 const SUPABASE_CREDENTIALS_KEY: string = 'supabase_credentials';
 
-// Get stored credentials from localStorage (client-side only)
+// Get stored credentials from localStorage (client-side only) or environment variables
 export const getStoredCredentials = (): SupabaseCredentials | null => {
+    // 1. Prioritize environment variables if they are available
+    if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        return {
+            supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
+            supabaseAnonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+        };
+    }
+
+    // 2. Fallback to localStorage for dynamic configurations
     if (typeof window === 'undefined') return null;
 
     const stored = localStorage.getItem(SUPABASE_CREDENTIALS_KEY);
